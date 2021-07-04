@@ -9,8 +9,7 @@ class Main {
 
     //Listen on port 8080.
     server.listen("8080");
-
-    console.log("http://localhost:8080にアクセスしてください");
+    console.log("Listening on port 8080...");
 
   }
 
@@ -18,7 +17,9 @@ class Main {
     request: http.IncomingMessage,
     response: http.ServerResponse
   ): void {
-    response.end("Hello!");
+    response.writeHead(200, { "Content-Type" : "application/json" });
+    response.write('{"answer":0}');
+    response.end();
   }
 }
 
